@@ -1,0 +1,17 @@
+# my_app_config/values.yaml
+# Cấu hình cho môi trường lab
+
+backend:
+  replicaCount: 1
+  image:
+    # CI pipeline sẽ tự động cập nhật tag này
+    tag: "v1.0.0" 
+
+frontend:
+  replicaCount: 1
+  image:
+    tag: "v1.0.0"
+
+database:
+  # Bạn có thể ghi đè các giá trị DB ở đây nếu muốn
+  # Ví dụ: password: "a-different-password"
