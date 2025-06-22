@@ -13,5 +13,4 @@ frontend:
     tag: "v1.0.0"
 
 database:
-  # Bạn có thể ghi đè các giá trị DB ở đây nếu muốn
-  # Ví dụ: password: "a-different-password"
+  password: "123" # Mật khẩu bạn đã dùng trong docker-compose
