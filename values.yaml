@@ -1,18 +1,32 @@
-# my_app_config/values.yaml
-# Cấu hình cho môi trường lab
+# Default values for my-app-chart.
 
-backend:
+backend: 
   replicaCount: 1
   image:
     repository: chuitrai2901/my-go-backend
-    # CI pipeline sẽ tự động cập nhật tag này
-    tag: "v1.0.0" 
+    pullPolicy: IfNotPresent
+    tag: "latest"
 
 frontend:
   replicaCount: 1
   image:
-    repository: chuitrai2901/my-react-frontend
-    tag: "v1.0.0"
+    repository: chuitrai2901/my-react-frontend # <-- Thay bằng tên image của bạn
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  service:
+    type: NodePort
+    port: 80
 
 database:
-  password: "123" # Mật khẩu bạn đã dùng trong docker-compose
+  image:
+    repository: postgres
+    tag: "14-alpine"
+  
+  # Cấu hình sẽ được ghi đè bởi repo config
+  dbName: "mydb"
+  username: "admin"
+  password: "123"
+
+  # Cấu hình lưu trữ
+  storageClass: "local-path" # Giả định bạn dùng Local Path Provisioner
+  storageSize: "1Gi"
