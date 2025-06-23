@@ -4,12 +4,14 @@
 backend:
   replicaCount: 1
   image:
+    repository: chuitrai2901/my-go-backend
     # CI pipeline sẽ tự động cập nhật tag này
     tag: "v1.0.0" 
 
 frontend:
   replicaCount: 1
   image:
+    repository: chuitrai2901/my-react-frontend
     tag: "v1.0.0"
 
 database:
